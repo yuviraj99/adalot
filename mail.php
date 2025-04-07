@@ -1,10 +1,10 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
     // Sanitize input
-    $name    = htmlspecialchars(strip_tags(trim($_POST["name"])));
-    $email   = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-    $subject = htmlspecialchars(strip_tags(trim($_POST["subject"])));
-    $message = htmlspecialchars(strip_tags(trim($_POST["message"])));
+    $name    = htmlspecialchars(strip_tags(trim($_GET["name"])));
+    $email   = filter_var(trim($_GET["email"]), FILTER_SANITIZE_EMAIL);
+    $subject = htmlspecialchars(strip_tags(trim($_GET["subject"])));
+    $message = htmlspecialchars(strip_tags(trim($_GET["message"])));
 
     // Validate input
     if (empty($name) || empty($email) || empty($message) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
